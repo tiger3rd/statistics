@@ -37,6 +37,7 @@ public class DataController {
 
     @GetMapping("/basic")
     public Map<String, Object> getBasic(String startTime, String endTime) {
+        System.out.println("...");
         Map<String, Object> ret = new HashMap<>(3);
         ret.put("status", 0);
         ret.put("msg", "success");
