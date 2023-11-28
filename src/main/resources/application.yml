@@ -1,0 +1,75 @@
+
+server:
+  port: 8228
+  servlet:
+    context-path: /daasmonitorapi
+spring:
+  datasource:
+    xugu:
+      #jdbc-url: jdbc:xugu://10.40.80.162:5138/BABJ_SMDB
+      #username: USR_MUSIC
+      #password: music_1234
+      #driver-class-name: com.xugu.cloudjdbc.Driver
+      jdbc-url: jdbc:mysql://rds329ece6cpewy7pf51lo.mysql.rds.aliyuncs.com:3306/musicdb?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: music
+      password: musicAT20170418
+  servlet:
+    multipart:
+      max-request-size: 5MB
+      max-file-size: 5MB
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+mybatis-plus:
+  global-config:
+    sql-parser-cache: true
+logging:
+  level:
+    com.piesat.statistics.mapper: debug
+#cron: 30 18 11 * * ?
+cron: 00 00 04 ? * Mon
+emailUrl: http://10.0.86.136:9080/comApi/commonService/mailService?dataFormat=json&interfaceId=sendMail
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+
+permission-config:
+  perms:
+    - url: /login
+      permission: anon
+    - url: /user/total
+      permission: anon
+    - url: /user/new
+      permission: anon
+    - url: /user/active
+      permission: anon
+    - url: /user/access
+      permission: anon
+    - url: /user/drillAccess
+      permission: anon
+    - url: /data/download
+      permission: anon
+    - url: /data/drillDownload
+      permission: anon
+    - url: /data/dataCountGroupByDataclass
+      permission: anon
+    - url: /data/unitdown
+      permission: anon
+    - url: /data/userdown
+      permission: anon
+    - url: /data/dataTop5
+      permission: anon
+    - url: /data/dataTop
+      permission: anon
+    - url: /data/dataStatByDatacode
+      permission: anon
+    - url: /data/problemTotal
+      permission: anon
+    - url: /data/problemUser
+      permission: anon
+    - url: /**
+      permission: auth
+
